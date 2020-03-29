@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+  - name: Check Ram Usage
+    ram:
+    register: ram_out
+
+  - debug:
+      var: ram_out.message

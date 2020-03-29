@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+  - name: Print System Info
+    sys_info:
+    register: sys_info_out
+
+  - debug: 
+      var: sys_info_out.message
+

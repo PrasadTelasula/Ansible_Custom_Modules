@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars_prompt:
+  - name: username
+    prompt: "Please Enter Your name: "
+    private: no
+
+  tasks:
+  - name: Greet User.
+    greetings:
+        name: "{{ username }}"
+    register: greet_output
+
+  - debug:
+      var: greet_output.original_message
